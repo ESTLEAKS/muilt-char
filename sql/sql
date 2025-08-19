@@ -1,13 +1,37 @@
 CREATE TABLE IF NOT EXISTS `users_characters` (
     `id` INT NOT NULL AUTO_INCREMENT,
+
+    -- Player identifier
     `license` VARCHAR(64) NOT NULL,
+
+    -- Character slot (1–5)
     `slot` INT NOT NULL,
-    `firstname` VARCHAR(50) DEFAULT '',
-    `lastname` VARCHAR(50) DEFAULT '',
+
+    -- Identity
+    `firstname` VARCHAR(50) NOT NULL DEFAULT '',
+    `lastname` VARCHAR(50) NOT NULL DEFAULT '',
     `dob` DATE DEFAULT NULL,
-    `gender` VARCHAR(10) DEFAULT '',
-    `job` VARCHAR(50) DEFAULT 'unemployed',
+    `gender` VARCHAR(10) NOT NULL DEFAULT '',
+    `job` VARCHAR(50) NOT NULL DEFAULT 'unemployed',
+
+    -- Skin data
+    `model` VARCHAR(50) NOT NULL DEFAULT 'mp_m_freemode_01',
+    `face` INT NOT NULL DEFAULT 0,
+    `torso` INT NOT NULL DEFAULT 0,
+    `undershirt` INT NOT NULL DEFAULT 0,
+    `legs` INT NOT NULL DEFAULT 0,
+    `shoes` INT NOT NULL DEFAULT 0,
+
+    -- Optional: spawn location
+    `last_x` FLOAT DEFAULT NULL,
+    `last_y` FLOAT DEFAULT NULL,
+    `last_z` FLOAT DEFAULT NULL,
+    `heading` FLOAT DEFAULT NULL,
+
+    -- Timestamps
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
     PRIMARY KEY (`id`),
     UNIQUE KEY `license_slot` (`license`, `slot`)
 );
