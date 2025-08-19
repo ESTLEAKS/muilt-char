@@ -1,0 +1,12 @@
+RegisterNUICallback('selectCharacter', function(data, cb)
+    SetNuiFocus(false, false)
+    DestroySelectionCamera()
+    TriggerServerEvent('ums:selectCharacter', data.slot)
+    cb({})
+end)
+
+RegisterNUICallback('closeUI', function(_, cb)
+    SetNuiFocus(false, false)
+    DestroySelectionCamera()
+    cb({})
+end)
