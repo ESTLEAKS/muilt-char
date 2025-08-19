@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTS `users_characters` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `license` VARCHAR(64) NOT NULL,
+    `slot` INT NOT NULL,
+    `firstname` VARCHAR(50) DEFAULT '',
+    `lastname` VARCHAR(50) DEFAULT '',
+    `dob` DATE DEFAULT NULL,
+    `gender` VARCHAR(10) DEFAULT '',
+    `job` VARCHAR(50) DEFAULT 'unemployed',
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `license_slot` (`license`, `slot`)
+);
